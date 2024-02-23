@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\buku;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class bukuController extends Controller
@@ -48,13 +49,66 @@ class bukuController extends Controller
             'penerbit' => $request->penerbit,
             'tahun_terbit' => $request->tahun_terbit,
             'deskripsi' => $request->deskripsi,
-            'image' => $request->image,
+            'image' => $image->hashName(),
             'kategori' => $request->kategori,
         ];
 
         buku::create($buku);
         return redirect()->to('buku')->with('succes', 'Data Berhasil Ditambahkan');
+        
+    }
 
+    public function show(string $id): View
+    {
+        //get post by ID
+        $buku = buku::findOrFail($id);
+
+        //render view with post
+        return view('buku.show', compact('buku'));
+    }
+
+    public function update($id, Request $request): RedirectResponse 
+    {
+     
+        $imageName = "";
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $image->storeAs('public/buku', $image->hashName());  
+            $imageName = $image->hashName();         
+        }
+        
+        $buku = buku::where("id_buku", $id);
+        $dataBuku = $buku->first();
+        
+        $buku->update([
+            'judul' => $request->judul,
+            'penulis' => $request->penulis,
+            'penerbit' => $request->penerbit,
+            'tahun_terbit' => $request->tahun_terbit,
+            'deskripsi' => $request->deskripsi,
+            'image' => $imageName == "" ? $dataBuku->image : $imageName,
+            'kategori' => $request->kategori,
+        ]);
+        return redirect()->to('buku')->with('succes', 'Data Berhasil Ditambahkan');
+        
+    }
+
+    public function edit(string $id): View {
+                
+        $buku = buku::where("id_buku", $id)->first();
+        $updateId = $id;
+
+        return view('buku.edit', compact('buku','id'));
+    }
+
+    public function destroy(string $id): RedirectResponse {
+
+        $buku = buku::where("id_buku", $id)->first();
+        
+        Storage::delete('public/buku/'. $buku->image);
+        buku::where("id_buku", $id)->delete();
+
+        return redirect()->to('buku')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
 }

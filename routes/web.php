@@ -23,7 +23,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::group(['middleware'=>'role:admin,petugas'], function(){
+Route::group(['middleware' => 'role:admin,petugas'], function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -39,8 +39,8 @@ Route::get('/admin', function () {
     return view('admin.admin_home');
 });
 
-Route::get('/welcome', function(){
-    return view ('welcome');
+Route::get('/welcome', function () {
+    return view('welcome');
 })->name('welcome');
 
 Route::get('/buku', function () {
@@ -57,16 +57,25 @@ Route::get('/detail-buku', function () {
     return view('detail');
 });
 
-Route::get('/create', function() {
+Route::get('/create', function () {
     return view('buku.create');
 });
 
-Route::get('/buku', function() {
+
+Route::get('/edit/{id}', [bukuController::class, 'edit'])->name('buku.edit');
+Route::get('/buku/update/{id}', [bukuController::class, 'update'])->name('buku.update');
+
+
+Route::get('/show', function () {
     return view('buku.show');
+});
+
+Route::get('/buku', function () {
+    return view('buku.destroy');
 });
 
 Route::resource('/buku', bukuController::class);
 
 Route::post('/buku', [bukuController::class, 'store']);
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
