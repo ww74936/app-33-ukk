@@ -21,14 +21,13 @@ class bukuController extends Controller
     public function store(Request $request): RedirectResponse 
     {
         $this->validate($request,[
-            'judul' => 'required|min:5',
-            'penulis' => 'required|min:5',
-            'penerbit' => 'required|min:5',
-            'tahun_terbit' => 'required|min:5',
-            'deskripsi' => 'required|min:5',
+            'judul' => 'required',
+            'penulis' => 'required',
+            'penerbit' => 'required',
+            'tahun_terbit' => 'required',
+            'deskripsi' => 'required',
             'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
-            'stok' => 'required|min:5',
-            'kategori_id' => 'required|min:5',
+            'kategori' => 'required',
         ], [
             'judul.required' => 'Isi Judul',
             'penulis.required' => 'Isi penulis',
@@ -36,9 +35,9 @@ class bukuController extends Controller
             'tahun_terbit.required' => 'Isi tahun_terbit',
             'deskripsi.required' => 'Isi deskripsi',
             'image.required' => 'Isi image',
-            'stok.required' => 'Isi stok',
-            'kategori_id.required' => 'Isi kategori_id',
+            'kategori.required' => 'Isi kategori',
         ]);
+        
 
         $image = $request->file('image');
         $image->storeAs('public/buku', $image->hashName());
@@ -50,8 +49,7 @@ class bukuController extends Controller
             'tahun_terbit' => $request->tahun_terbit,
             'deskripsi' => $request->deskripsi,
             'image' => $request->image,
-            'stok' => $request->stok,
-            'kategori_id' => $request->kategori_id,
+            'kategori' => $request->kategori,
         ];
 
         buku::create($buku);

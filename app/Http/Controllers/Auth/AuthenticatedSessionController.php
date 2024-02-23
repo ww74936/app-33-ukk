@@ -30,12 +30,12 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         if (Auth::user() && Auth::user()->role !='peminjam'){
-            return redirect('admin_home');
+            return redirect('admin');
         } else{
             // Auth::guard('web')->logout();
             // return
             // redirect()->route('login')->with('status', 'you are not authorized to access this page.11');
-            return redirect('/dashboard');
+            return redirect('/welcome');
         }
         return redirect()->intended(RouteServiceProvider::HOME);
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\bukuController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,9 +39,15 @@ Route::get('/admin', function () {
     return view('admin.admin_home');
 });
 
+Route::get('/welcome', function(){
+    return view ('welcome');
+})->name('welcome');
+
 Route::get('/buku', function () {
     return view('buku.index');
 });
+
+// Route::resource('/buku', \App\Http\Controllers\bukuController::class);
 
 Route::get('/kategori', function () {
     return view('index');
@@ -53,5 +60,13 @@ Route::get('/detail-buku', function () {
 Route::get('/create', function() {
     return view('buku.create');
 });
+
+Route::get('/buku', function() {
+    return view('buku.show');
+});
+
+Route::resource('/buku', bukuController::class);
+
+Route::post('/buku', [bukuController::class, 'store']);
 
 require __DIR__.'/auth.php';
