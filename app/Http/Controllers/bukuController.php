@@ -10,12 +10,14 @@ use Illuminate\View\View;
 
 class bukuController extends Controller
 {
-    public function index(): View{
+    public function index(): View
+    {
         $buku = buku::latest()->paginate(5);
         return view('buku.index', compact('buku'));
     }
 
-    public function create(): View{
+    public function create(): View
+    {
         return view('buku.create');
     }
 
@@ -58,10 +60,10 @@ class bukuController extends Controller
         
     }
 
-    public function show(string $id): View
+    public function show(string $id_buku): View
     {
         //get post by ID
-        $buku = buku::findOrFail($id);
+        $buku = buku::findOrFail($id_buku);
 
         //render view with post
         return view('buku.show', compact('buku'));

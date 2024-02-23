@@ -40,7 +40,7 @@
                 <th><img src="{{ url('storage/buku/'.$item->image) }}" class="rounded" style="width: 100px"></th>
                 <td>{{ $item->kategori }}</td>
                 <td>
-                  <a href="{{ ('/show'. $item->id_buku) }}" class="btn btn-primary btn-sm" title="show">View</a>
+                  <a href="{{ route('buku.show', $item->id_buku) }}" class="btn btn-primary btn-sm" title="show">View</a>
                   <a href="{{ ('/edit/'. $item->id_buku) }}" class="btn btn-info btn-sm" title="show">Edit</a>
                   <form action="{{ url('buku/'. $item->id_buku) }}" class="d-inline" method="post" onsubmit="return confrim('yakin akan menghapus data ini')">
                     @csrf

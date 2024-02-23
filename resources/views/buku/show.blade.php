@@ -15,11 +15,13 @@
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
                         <h4>{{ $buku->judul }}</h4>
-                        <img src="{{ asset('storage/buku/'.$buku->image) }}" class="w-100 rounded">
-                        <hr>
-                        <p class="tmt-3">
-                            {!! $post->content !!}
-                        </p>
+                        <h4>{{ $buku->penulis }}</h4>
+                        <h4>{{ $buku->penerbit }}</h4>
+                        <h4>{{ $buku->tahun_terbit }}</h4>
+                        <img src="{{ url('storage/buku/'.$buku->image) }}" class="w-100 rounded" style="height: 500px; object-fit: contain">
+                        <h4>{{ $buku->deskripsi }}</h4>
+                        <h4>{{ $buku->kategori }}</h4>
+                        <a href="{{ url('buku') }}" class="btn btn-md btn-secondary">kembali</a>
                     </div>
                 </div>
             </div>
@@ -30,3 +32,56 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+{{-- @extends('admin.template')
+@section('konten')
+<main id="main" class="main">
+    <div class="pagetitle">
+      <h1>Buku</h1>
+      <nav>
+         <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home Buku</a></li>
+            <li class="breadcrumb-item active">Dashboard Admin</li>
+         </ol>
+      </nav>
+      {{-- <button class="btn btn-secondary bi bi-plus" type="submit">Tambah</button> --}}
+      {{-- <a class="btn btn-secondary bi bi-plus" title="Create" role="button" aria-disabled="true" href="{{ url('create') }}" type="submit">Tambah</a>
+    </div><!-- End Page Title -->
+    <table class="table table-striped">
+        <thead>
+           <tr>
+              <th scope="col">#</th>
+              <th scope="col">judul</th>
+              <th scope="col">Penulis</th>
+              <th scope="col">Penerbit</th>
+              <th scope="col">Tahun Terbit</th>
+              <th scope="col">Deskripsi</th>
+              <th scope="col">Gambar</th>
+              <th scope="col">Kategori</th>
+              <th scope="col">Aksi</th>
+           </tr>
+        </thead>
+        <tbody>
+              <tr>
+                  <th>{{ $buku->id_buku }}</th>
+                  <td>{{ $buku->judul }}</td>
+                  <td>{{ $buku->penulis }}</td>
+                  <td>{{ $buku->penerbit }}</td>
+                  <td>{{ $buku->tahun_terbit }}</td>
+                  <td>{{ $buku->deskripsi }}</td>
+                  <th><img src="{{ url('storage/buku/'.$buku->image) }}" class="rounded" style="width: 100px"></th>
+                  <td>{{ $buku->kategori }}</td>
+                  <td>
+                    <a href="{{ route('buku.show', $buku->id_buku) }}" class="btn btn-primary btn-sm" title="show">View</a>
+                    <a href="{{ ('/edit/'. $buku->id_buku) }}" class="btn btn-info btn-sm" title="show">Edit</a>
+                    <form action="{{ url('buku/'. $buku->id_buku) }}" class="d-inline" method="post" onsubmit="return confrim('yakin akan menghapus data ini')">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" title="Delete" name="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                  </td>
+              </tr> 
+        </tbody>
+    </table>
+</main>
+@endsection --}}
