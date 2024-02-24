@@ -30,7 +30,7 @@ class bukuController extends Controller
             'tahun_terbit' => 'required',
             'deskripsi' => 'required',
             'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
-            'kategori' => 'required',
+            'kategori' => 'required|max:500',
         ], [
             'judul.required' => 'Isi Judul',
             'penulis.required' => 'Isi penulis',

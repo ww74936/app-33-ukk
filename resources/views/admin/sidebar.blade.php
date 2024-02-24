@@ -204,13 +204,6 @@
       </li><!-- End Contact Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
-          <span>Register</span>
-        </a>
-      </li><!-- End Register Page Nav -->
-
-      <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('/welcome') }}">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>LogOut</span>

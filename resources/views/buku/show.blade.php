@@ -14,13 +14,13 @@
             <div class="col-md-8">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <h4>{{ $buku->judul }}</h4>
-                        <h4>{{ $buku->penulis }}</h4>
-                        <h4>{{ $buku->penerbit }}</h4>
-                        <h4>{{ $buku->tahun_terbit }}</h4>
+                        <h4>Judul :{{ $buku->judul }}</h4>
+                        <h4>Penulis :{{ $buku->penulis }}</h4>
+                        <h4>Penerbit :{{ $buku->penerbit }}</h4>
+                        <h4>Tahun Terbit :{{ $buku->tahun_terbit }}</h4>
                         <img src="{{ url('storage/buku/'.$buku->image) }}" class="w-100 rounded" style="height: 500px; object-fit: contain">
-                        <h4>{{ $buku->deskripsi }}</h4>
-                        <h4>{{ $buku->kategori }}</h4>
+                        <h4>Deskripsi Buku :{{ $buku->deskripsi }}</h4>
+                        <h4>Kategori Buku :{{ $buku->kategori }}</h4>
                         <a href="{{ url('buku') }}" class="btn btn-md btn-secondary">kembali</a>
                     </div>
                 </div>

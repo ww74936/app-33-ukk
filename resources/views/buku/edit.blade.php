@@ -14,7 +14,7 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <h3>Tambah Buku</h3>
+                        <h3>Edit Data Buku</h3>
                         <form action="{{ route('buku.update', $id) }}" method="post" enctype="multipart/form-data">
                         
                             @csrf
@@ -53,7 +53,7 @@
                                     <option selected>Open this select menu</option>
                                     <option value="fantasi" {{ $buku->kategori == "fantasi" ? 'selected' : '' }}>Fantasi</option>
                                     <option value="fiksi" {{ $buku->kategori == "fiksi" ? 'selected' : '' }}>Fiksi</option>
-                                    <option value="on-fiksi" {{ $buku->kategori == "on-fiksi" ? 'selected' : '' }}>non-Fiksi</option>
+                                    <option value="non-fiksi" {{ $buku->kategori == "non-fiksi" ? 'selected' : '' }}>non-Fiksi</option>
                                 </select>                               
                             </div>
                             <a href="{{ url('buku') }}" class="btn btn-md btn-secondary">kembali</a>

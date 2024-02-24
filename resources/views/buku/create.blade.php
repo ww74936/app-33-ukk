@@ -52,7 +52,7 @@
                                     <option selected>Open this select menu</option>
                                     <option value="fantasi">Fantasi</option>
                                     <option value="fiksi">Fiksi</option>
-                                    <option value="on-fiksi">non-Fiksi</option>
+                                    <option value="non-fiksi">non-Fiksi</option>
                                 </select>                               
                             </div>
                             <a href="{{ url('buku') }}" class="btn btn-md btn-secondary">kembali</a>

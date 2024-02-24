@@ -25,7 +25,6 @@
                                         <li><a href="{{ route('register') }}">Register</a></li>
                                     </ul> --}}
                                 </li>
-                                <li><a href="./blog.html">Our Blog</a></li>
                             </ul>
                         </nav>
                     </div>
