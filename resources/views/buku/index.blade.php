@@ -11,7 +11,7 @@
          </ol>
       </nav>
       {{-- <button class="btn btn-secondary bi bi-plus" type="submit">Tambah</button> --}}
-      <a class="btn btn-secondary bi bi-plus" title="Create" role="button" aria-disabled="true" href="{{ url('create') }}" type="submit">Tambah</a>
+      <a class="btn btn-secondary bi bi-plus" title="Create" role="button" aria-disabled="true" href="{{ url('buku/create') }}" type="submit">Tambah</a>
     </div><!-- End Page Title -->
     <table class="table table-striped">
       <thead>
@@ -37,15 +37,15 @@
                 <td>{{ $item->penerbit }}</td>
                 <td>{{ $item->tahun_terbit }}</td>
                 <td>{{ $item->deskripsi }}</td>
-                <th><img src="{{ url('storage/buku/'.$item->image) }}" class="rounded" style="width: 100px"></th>
-                <td>{{ $item->kategori }}</td>
+                <th><img src="{{ Storage::url('public/buku/'. $item->image) }}" class="rounded" style="width: 100px"></th>
+                <td>{{ $item->kategori->kategori }}</td>
                 <td>
-                  <a href="{{ route('buku.show', $item->id_buku) }}" class="btn btn-primary btn-sm" title="show">View</a>
-                  <a href="{{ ('/edit/'. $item->id_buku) }}" class="btn btn-info btn-sm" title="show">Edit</a>
-                  <form action="{{ url('buku/'. $item->id_buku) }}" class="d-inline" method="post" onsubmit="return confrim('yakin akan menghapus data ini')">
+                  <a href="{{ route('buku.show', $item->id) }}" class="btn btn-primary btn-sm" title="show"><i class="bi bi-eye"></i></a>
+                  <a href="{{ ('buku/'. $item->id . '/edit') }}" class="btn btn-info btn-sm" title="show"><i class="bi bi-pen"></i></a>
+                  <form action="{{ url('buku/'. $item->id) }}" class="d-inline" method="post" onsubmit="return confrim('yakin akan menghapus data ini')">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" title="Delete" name="submit" class="btn btn-danger btn-sm">Delete</button>
+                    <button type="submit" title="Delete" name="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
                   </form>
                 </td>
             </tr> 

@@ -42,19 +42,21 @@
                             <div class="mb-3">
                                 <label for="image" class="form-lable">Gambar</label>
                                 <div class="col-cm-10">
-                                    <img class="img-preview img-fuild mb-3 col-sm-10 d-blok" style="width: 450px; height: 280px">
-                                    <input type="file" class="form-control" id="image" name="image" onchange="previewImage">
+                                    <input type="file" class="form-control" id="image" name="image">
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="image" class="form-lable">Kategori</label>
-                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="kategori" name="kategori">
-                                    <option selected>Open this select menu</option>
-                                    <option value="fantasi">Fantasi</option>
-                                    <option value="fiksi">Fiksi</option>
-                                    <option value="non-fiksi">non-Fiksi</option>
-                                </select>                               
+                            <div class="form-group">
+                                <label for="stok" class="form-lable">Stok</label>
+                                <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok Buku">
                             </div>
+                            <div class="form-group mb-4">
+                                <label for="id_kategori">Kategori</label>
+                                <select class="form-control" id="id_kategori" name="id_kategori">
+                                   @foreach ($kategori as $item)
+                                      <option value="{{ $item->id_kategori }}">{{ $item->kategori }}</option>
+                                   @endforeach 
+                                </select>
+                             </div>
                             <a href="{{ url('buku') }}" class="btn btn-md btn-secondary">kembali</a>
                             <button type="submit" class="btn btn-md btn-primary">Simpan</button>
                         </form> 

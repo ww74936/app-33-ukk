@@ -9,7 +9,7 @@ class buku extends Model
 {
     use HasFactory;
 
-    protected $primaryKey ="id_buku";
+    protected $primaryKey ="id";
     protected $table = "bukus";
     protected $fillable = [
         'judul',
@@ -19,6 +19,11 @@ class buku extends Model
         'deskripsi',
         'image',
         'stok',
-        'kategori',
+        'id_kategori',
     ];
+
+    public function kategori()
+    {
+        return $this->belongsTo(kategori::class, 'id_kategori', 'id_kategori');
+    }
 }

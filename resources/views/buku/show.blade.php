@@ -20,7 +20,7 @@
                         <h4>Tahun Terbit :{{ $buku->tahun_terbit }}</h4>
                         <img src="{{ url('storage/buku/'.$buku->image) }}" class="w-100 rounded" style="height: 500px; object-fit: contain">
                         <h4>Deskripsi Buku :{{ $buku->deskripsi }}</h4>
-                        <h4>Kategori Buku :{{ $buku->kategori }}</h4>
+                        <h4>Kategori Buku :{{ $buku->kategori->kategori }}</h4>
                         <a href="{{ url('buku') }}" class="btn btn-md btn-secondary">kembali</a>
                     </div>
                 </div>

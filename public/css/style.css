@@ -958,7 +958,7 @@ ol {
 }
 
 .anime__details__text p {
-    color: #b7b7b7;
+    color: #000000;
     font-size: 18px;
     line-height: 30px;
 }
@@ -998,14 +998,14 @@ ol {
 }
 
 .anime__details__title h3 {
-    color: #ffffff;
+    color: #000000;
     font-weight: 700;
     margin-bottom: 13px;
 }
 
 .anime__details__title span {
     font-size: 15px;
-    color: #b7b7b7;
+    color: #000000;
     display: block;
 }
 
@@ -1039,7 +1039,7 @@ ol {
 .anime__details__widget ul li {
     list-style: none;
     font-size: 15px;
-    color: #ffffff;
+    color: #000000;
     line-height: 30px;
     position: relative;
     padding-left: 18px;
@@ -1051,12 +1051,12 @@ ol {
     top: 12px;
     height: 6px;
     width: 6px;
-    background: #b7b7b7;
+    background: #000000;
     content: "";
 }
 
 .anime__details__widget ul li span {
-    color: #b7b7b7;
+    color: #000000;
     width: 115px;
     display: inline-block;
 }

@@ -35,7 +35,7 @@ class AuthenticatedSessionController extends Controller
             // Auth::guard('web')->logout();
             // return
             // redirect()->route('login')->with('status', 'you are not authorized to access this page.11');
-            return redirect('/welcome');
+            return redirect('/');
         }
         return redirect()->intended(RouteServiceProvider::HOME);
     }
